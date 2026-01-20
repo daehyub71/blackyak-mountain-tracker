@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블랙야크 100대 명산 - MNT_CODE 매핑 결과</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 { 
+            text-align: center; 
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .summary {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-card .number { font-size: 28px; font-weight: bold; }
+        .stat-card .label { color: #666; font-size: 14px; }
+        .stat-card.success .number { color: #22c55e; }
+        .stat-card.warning .number { color: #f59e0b; }
+        .stat-card.error .number { color: #ef4444; }
+        
+        .filters {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filters label { font-weight: 500; }
+        .filters select, .filters input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th {
+            background: #1e293b;
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 500;
+            position: sticky;
+            top: 0;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        tr:hover { background: #f8fafc; }
+        
+        .status-success { color: #22c55e; font-weight: 500; }
+        .status-warning { color: #f59e0b; font-weight: 500; }
+        .status-error { color: #ef4444; font-weight: 500; }
+        
+        .code { 
+            font-family: monospace; 
+            background: #f1f5f9; 
+            padding: 2px 6px; 
+            border-radius: 4px;
+        }
+        .similar { color: #666; font-size: 12px; }
+        
+        .region-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏔️ 블랙야크 100대 명산 - MNT_CODE 매핑 결과</h1>
+        
+        <div class="summary">
+
+            <div class="stat-card">
+                <div class="number">99</div>
+                <div class="label">전체</div>
+            </div>
+            <div class="stat-card success">
+                <div class="number">72</div>
+                <div class="label">매칭 성공</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="number">6</div>
+                <div class="label">확인 필요</div>
+            </div>
+            <div class="stat-card error">
+                <div class="number">21</div>
+                <div class="label">매칭 실패</div>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <label>필터:</label>
+            <select id="statusFilter" onchange="filterTable()">
+                <option value="">전체 상태</option>
+                <option value="✅">✅ 매칭 성공</option>
+                <option value="⚠️">⚠️ 확인 필요</option>
+                <option value="❌">❌ 매칭 실패</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="산 이름 검색..." onkeyup="filterTable()">
+        </div>
+        
+        <table id="mappingTable">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>산 이름</th>
+                    <th>지역</th>
+                    <th>고도</th>
+                    <th>상태</th>
+                    <th>산코드</th>
+                    <th>MNT_CODE 위치</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td><strong>가리산(홍천)</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1051m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 가리왕산, 인대산가리막골</span></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><strong>가리왕산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1561m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>427700101</span></td>
+                    <td>강원도 정선군 북평면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><strong>가야산(경상)</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>1430m</td>
+                    <td class="status-warning">⚠️ 확인필요</td>
+                    <td><span class='code'>461700101</span></td>
+                    <td>전라남도 나주시 남평읍 </td>
+                    <td><span class='similar'>다른위치: 전라남도 나주시 남평읍  | 전라남도 광양시 성황동 ...</span></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><strong>가야산(충남)</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>678m</td>
+                    <td class="status-warning">⚠️ 확인필요</td>
+                    <td><span class='code'>461700101</span></td>
+                    <td>전라남도 나주시 남평읍 </td>
+                    <td><span class='similar'>다른위치: 전라남도 나주시 남평읍  | 전라남도 광양시 성황동 ...</span></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><strong>가지산</strong></td>
+                    <td><span class="region-badge">울산광역시</span></td>
+                    <td>1241m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>317100101</span></td>
+                    <td>울산광역시 울주군 상북면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td><strong>감악산(원주)</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>945m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>421303001</span></td>
+                    <td>강원도 원주시 신림면 </td>
+                    <td>후보 4개</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td><strong>감악산(파주)</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>674m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>414800101</span></td>
+                    <td>경기도 파주시 적성면 </td>
+                    <td>후보 4개</td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td><strong>계룡산</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>766m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>483100401</span></td>
+                    <td>경상남도 거제시 신현읍 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td><strong>계방산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1577m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>427206801</span></td>
+                    <td>강원도 홍천군 내면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td><strong>관악산</strong></td>
+                    <td><span class="region-badge">서울특별시</span></td>
+                    <td>629m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>116200201</span></td>
+                    <td>서울특별시 관악구 신림제9동 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>11</td>
+                    <td><strong>광덕산</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>699m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>441300301</span></td>
+                    <td>충청남도 천안시 동면 </td>
+                    <td>후보 5개</td>
+                </tr>
+
+                <tr>
+                    <td>12</td>
+                    <td><strong>구병산(보은)</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>877m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>437200401</span></td>
+                    <td>충청북도 보은군 내속리면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>13</td>
+                    <td><strong>구봉산(진안)</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>1002m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>457200201</span></td>
+                    <td>전라북도 진안군 정천면 </td>
+                    <td>후보 9개</td>
+                </tr>
+
+                <tr>
+                    <td>14</td>
+                    <td><strong>금수산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>1016m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>438002601</span></td>
+                    <td>충청북도 단양군  </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>15</td>
+                    <td><strong>금오산(구미)</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>977m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>471900101</span></td>
+                    <td>경상북도 구미시 선주원남동 </td>
+                    <td>후보 5개</td>
+                </tr>
+
+                <tr>
+                    <td>16</td>
+                    <td><strong>금정산</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>801m</td>
+                    <td class="status-warning">⚠️ 확인필요</td>
+                    <td><span class='code'>264100101</span></td>
+                    <td>부산광역시 금정구  </td>
+                    <td><span class='similar'>다른위치: 부산광역시 금정구   | 인천광역시 서구  ...</span></td>
+                </tr>
+
+                <tr>
+                    <td>17</td>
+                    <td><strong>남산(경주)</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>468m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>478200601</span></td>
+                    <td>경상북도 청도군 화양읍 </td>
+                    <td>후보 16개</td>
+                </tr>
+
+                <tr>
+                    <td>18</td>
+                    <td><strong>내변산(부안)</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>424m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>19</td>
+                    <td><strong>내연산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>711m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>471100801</span></td>
+                    <td>경상북도 포항시 송라면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>20</td>
+                    <td><strong>내장산</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>763m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>21</td>
+                    <td><strong>달마산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>489m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>468200701</span></td>
+                    <td>전라남도 해남군 송지면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>22</td>
+                    <td><strong>대둔산</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>878m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>447103401</span></td>
+                    <td>충청남도 금산군  </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>23</td>
+                    <td><strong>대야산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>931m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>472800901</span></td>
+                    <td>경상북도 문경시 가은읍 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>24</td>
+                    <td><strong>덕룡산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>432m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>468100501</span></td>
+                    <td>전라남도 강진군 도암면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>25</td>
+                    <td><strong>덕유산</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>1614m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 남덕유산, 덕유산_향적봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>26</td>
+                    <td><strong>덕항산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1071m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>421900601</span></td>
+                    <td>강원도 태백시 삼수동 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>27</td>
+                    <td><strong>도락산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>964m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>438002801</span></td>
+                    <td>충청북도 단양군  </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>28</td>
+                    <td><strong>도봉산</strong></td>
+                    <td><span class="region-badge">서울특별시</span></td>
+                    <td>740m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>482501001</span></td>
+                    <td>경상남도 김해시 상동면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>29</td>
+                    <td><strong>동악산(곡성)</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>735m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 동악산둘레길</span></td>
+                </tr>
+
+                <tr>
+                    <td>30</td>
+                    <td><strong>두륜산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>703m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 두륜산_가련봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>31</td>
+                    <td><strong>두타산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1353m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>422301901</span></td>
+                    <td>강원도 삼척시 미로면 </td>
+                    <td>후보 3개</td>
+                </tr>
+
+                <tr>
+                    <td>32</td>
+                    <td><strong>마니산(강화도)</strong></td>
+                    <td><span class="region-badge">인천광역시</span></td>
+                    <td>472m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>287100601</span></td>
+                    <td>인천광역시 강화군  </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>33</td>
+                    <td><strong>마이산(진안)</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>686m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>457200901</span></td>
+                    <td>전라북도 진안군 마령면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>34</td>
+                    <td><strong>명지산</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>1267m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>418201401</span></td>
+                    <td>경기도 가평군 북면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>35</td>
+                    <td><strong>모악산</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>793m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>451103301</span></td>
+                    <td>전라북도 전주시  </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>36</td>
+                    <td><strong>무등산</strong></td>
+                    <td><span class="region-badge">광주광역시</span></td>
+                    <td>1100m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>431502001</span></td>
+                    <td>충청북도 제천시 송학면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>37</td>
+                    <td><strong>민주지산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>1241m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>437401401</span></td>
+                    <td>충청북도 영동군 상촌면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>38</td>
+                    <td><strong>방장산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>742m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>457900601</span></td>
+                    <td>전라북도 고창군 신림면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>39</td>
+                    <td><strong>방태산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1444m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>428102201</span></td>
+                    <td>강원도 인제군 기린면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>40</td>
+                    <td><strong>백덕산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1350m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>427505801</span></td>
+                    <td>강원도 영월군 수주면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>41</td>
+                    <td><strong>백암산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>741m</td>
+                    <td class="status-warning">⚠️ 확인필요</td>
+                    <td><span class='code'>427203001</span></td>
+                    <td>강원도 홍천군 내촌면 </td>
+                    <td><span class='similar'>다른위치: 강원도 홍천군 내촌면  | 충청남도 금산군   | 경상북도 울진군 온정면 ...</span></td>
+                </tr>
+
+                <tr>
+                    <td>42</td>
+                    <td><strong>백운산(광양)</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>1222m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>457301401</span></td>
+                    <td>전라북도 무주군 적상면 </td>
+                    <td>후보 16개</td>
+                </tr>
+
+                <tr>
+                    <td>43</td>
+                    <td><strong>백운산(동강)</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>882m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>427708601</span></td>
+                    <td>강원도 정선군 신동읍 </td>
+                    <td>후보 16개</td>
+                </tr>
+
+                <tr>
+                    <td>44</td>
+                    <td><strong>북한산</strong></td>
+                    <td><span class="region-badge">서울특별시</span></td>
+                    <td>837m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>114100801</span></td>
+                    <td>서울특별시 서대문구  </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>45</td>
+                    <td><strong>불갑산(영광)</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>516m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>468600801</span></td>
+                    <td>전라남도 함평군 해보면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>46</td>
+                    <td><strong>비슬산</strong></td>
+                    <td><span class="region-badge">대구광역시</span></td>
+                    <td>1084m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>277101501</span></td>
+                    <td>대구광역시 달성군 가창면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>47</td>
+                    <td><strong>삼악산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>654m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>421102701</span></td>
+                    <td>강원도 춘천시 서면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>48</td>
+                    <td><strong>선운산</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>336m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 선운산_도솔봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>49</td>
+                    <td><strong>설악산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1708m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 설악산_대청봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>50</td>
+                    <td><strong>소백산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>1440m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 소백산_비로봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>51</td>
+                    <td><strong>소요산</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>587m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>412500201</span></td>
+                    <td>경기도 동두천시 소요동 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>52</td>
+                    <td><strong>속리산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>1057m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 속리산_천황봉, 속리산둘레길</span></td>
+                </tr>
+
+                <tr>
+                    <td>53</td>
+                    <td><strong>수락산</strong></td>
+                    <td><span class="region-badge">서울특별시</span></td>
+                    <td>640m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>113500201</span></td>
+                    <td>서울특별시 노원구 상계동 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>54</td>
+                    <td><strong>신불산</strong></td>
+                    <td><span class="region-badge">울산광역시</span></td>
+                    <td>1159m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>317102401</span></td>
+                    <td>울산광역시 울주군 삼남면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>55</td>
+                    <td><strong>연인산</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>1068m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>418202901</span></td>
+                    <td>경기도 가평군  </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>56</td>
+                    <td><strong>오대산 노인봉</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1338m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 오대산, 오대산_노인봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>57</td>
+                    <td><strong>오대산 비로봉</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1565m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 오대산, 오대산_노인봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>58</td>
+                    <td><strong>오봉산(춘천)</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>779m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>421103801</span></td>
+                    <td>강원도 춘천시 북산면 </td>
+                    <td>후보 20개</td>
+                </tr>
+
+                <tr>
+                    <td>59</td>
+                    <td><strong>오서산(보령)</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>791m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>441801701</span></td>
+                    <td>충청남도 보령시  </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>60</td>
+                    <td><strong>용문산(양평)</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>1157m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>418303101</span></td>
+                    <td>경기도 양평군 용문면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>61</td>
+                    <td><strong>용봉산(홍성)</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>381m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 부용봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>62</td>
+                    <td><strong>용화산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>878m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>421302101</span></td>
+                    <td>강원도 원주시  </td>
+                    <td>후보 4개</td>
+                </tr>
+
+                <tr>
+                    <td>63</td>
+                    <td><strong>운악산</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>936m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>416502601</span></td>
+                    <td>경기도 포천시 소흘읍 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>64</td>
+                    <td><strong>운장산</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>1126m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>457202301</span></td>
+                    <td>전라북도 진안군 부귀면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>65</td>
+                    <td><strong>월악산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>1097m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 월악산_영봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>66</td>
+                    <td><strong>월출산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>809m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 월출봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>67</td>
+                    <td><strong>유명산</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>862m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>418303301</span></td>
+                    <td>경기도 양평군 옥천면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>68</td>
+                    <td><strong>응봉산(울진)</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>998m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>422305301</span></td>
+                    <td>강원도 삼척시 가곡면 </td>
+                    <td>후보 10개</td>
+                </tr>
+
+                <tr>
+                    <td>69</td>
+                    <td><strong>장안산</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>1237m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 장안산_상봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>70</td>
+                    <td><strong>재약산</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>1189m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>482704101</span></td>
+                    <td>경상남도 밀양시 단장면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>71</td>
+                    <td><strong>조계산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>888m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 조계산_장군봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>72</td>
+                    <td><strong>조령산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>1026m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>437602101</span></td>
+                    <td>충청북도 괴산군 연풍면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>73</td>
+                    <td><strong>주왕산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>721m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>477502301</span></td>
+                    <td>경상북도 청송군 부동면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>74</td>
+                    <td><strong>주흘산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>1106m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>472803901</span></td>
+                    <td>경상북도 문경시 문경읍 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>75</td>
+                    <td><strong>지리산</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>1915m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>482202301</span></td>
+                    <td>경상남도 통영시 사량면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>76</td>
+                    <td><strong>지리산 바래봉</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>1165m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 느지리오름, 지리산, 지리산_천왕봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>77</td>
+                    <td><strong>지리산 반야봉</strong></td>
+                    <td><span class="region-badge">전라북도</span></td>
+                    <td>1732m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class='similar'>유사: 느지리오름, 지리산, 지리산_천왕봉</span></td>
+                </tr>
+
+                <tr>
+                    <td>78</td>
+                    <td><strong>천관산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>724m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>468001701</span></td>
+                    <td>전라남도 장흥군 대덕읍 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>79</td>
+                    <td><strong>천마산</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>812m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>413602201</span></td>
+                    <td>경기도 남양주시 오남읍 </td>
+                    <td>후보 7개</td>
+                </tr>
+
+                <tr>
+                    <td>80</td>
+                    <td><strong>천태산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>714m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>437403501</span></td>
+                    <td>충청북도 영동군 양산면 </td>
+                    <td>후보 6개</td>
+                </tr>
+
+                <tr>
+                    <td>81</td>
+                    <td><strong>청계산</strong></td>
+                    <td><span class="region-badge">서울특별시</span></td>
+                    <td>582m</td>
+                    <td class="status-warning">⚠️ 확인필요</td>
+                    <td><span class='code'>412900401</span></td>
+                    <td>경기도 과천시  </td>
+                    <td><span class='similar'>다른위치: 경기도 과천시   | 경기도 가평군 하면  | 경기도 양평군 양서면 ...</span></td>
+                </tr>
+
+                <tr>
+                    <td>82</td>
+                    <td><strong>청량산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>870m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>481502601</span></td>
+                    <td>경상남도 마산시 현동 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>83</td>
+                    <td><strong>청화산</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>970m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>437603301</span></td>
+                    <td>충청북도 괴산군 청천면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>84</td>
+                    <td><strong>축령산(장성)</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>621m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>418203901</span></td>
+                    <td>경기도 가평군 상면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>85</td>
+                    <td><strong>치악산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1288m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>86</td>
+                    <td><strong>칠갑산(청양)</strong></td>
+                    <td><span class="region-badge">충청남도</span></td>
+                    <td>561m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>447902001</span></td>
+                    <td>충청남도 청양군  </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>87</td>
+                    <td><strong>칠보산(괴산)</strong></td>
+                    <td><span class="region-badge">충청북도</span></td>
+                    <td>778m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>437603901</span></td>
+                    <td>충청북도 괴산군  </td>
+                    <td>후보 4개</td>
+                </tr>
+
+                <tr>
+                    <td>88</td>
+                    <td><strong>태백산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1567m</td>
+                    <td class="status-warning">⚠️ 확인필요</td>
+                    <td><span class='code'>487403601</span></td>
+                    <td>경상남도 창녕군 대합면 </td>
+                    <td><span class='similar'>다른위치: 경상남도 창녕군 대합면  | 경상남도 합천군 초계면 ...</span></td>
+                </tr>
+
+                <tr>
+                    <td>89</td>
+                    <td><strong>태화산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1027m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>427504901</span></td>
+                    <td>강원도 영월군 영월읍 </td>
+                    <td>후보 5개</td>
+                </tr>
+
+                <tr>
+                    <td>90</td>
+                    <td><strong>팔공산</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>1193m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>457403001</span></td>
+                    <td>전라북도 장수군 장수읍 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>91</td>
+                    <td><strong>팔봉산(홍천)</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>327m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>427206501</span></td>
+                    <td>강원도 홍천군 서면 </td>
+                    <td>후보 6개</td>
+                </tr>
+
+                <tr>
+                    <td>92</td>
+                    <td><strong>팔영산</strong></td>
+                    <td><span class="region-badge">전라남도</span></td>
+                    <td>608m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>467702901</span></td>
+                    <td>전라남도 고흥군 영남면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>93</td>
+                    <td><strong>한라산</strong></td>
+                    <td><span class="region-badge">제주특별자치도</span></td>
+                    <td>1950m</td>
+                    <td class="status-error">❌ 매칭실패</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>94</td>
+                    <td><strong>함백산</strong></td>
+                    <td><span class="region-badge">강원도</span></td>
+                    <td>1573m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>421902401</span></td>
+                    <td>강원도 태백시 삼수동 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>95</td>
+                    <td><strong>화악산(가평)</strong></td>
+                    <td><span class="region-badge">경기도</span></td>
+                    <td>1446m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>418204301</span></td>
+                    <td>경기도 가평군 북면 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>96</td>
+                    <td><strong>화왕산(창녕)</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>756m</td>
+                    <td class="status-success">✅ 지역매칭</td>
+                    <td><span class='code'>487403301</span></td>
+                    <td>경상남도 창녕군 창녕읍 </td>
+                    <td>후보 2개</td>
+                </tr>
+
+                <tr>
+                    <td>97</td>
+                    <td><strong>황매산(산청)</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>1108m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>488906401</span></td>
+                    <td>경상남도 합천군 가회면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>98</td>
+                    <td><strong>황석산(함양)</strong></td>
+                    <td><span class="region-badge">경상남도</span></td>
+                    <td>1192m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>488703501</span></td>
+                    <td>경상남도 함양군 안의면 </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>99</td>
+                    <td><strong>황악산(김천)</strong></td>
+                    <td><span class="region-badge">경상북도</span></td>
+                    <td>1111m</td>
+                    <td class="status-success">✅ 정확매칭</td>
+                    <td><span class='code'>437403801</span></td>
+                    <td>충청북도 영동군  </td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        function filterTable() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#mappingTable tbody tr');
+            
+            rows.forEach(row => {
+                const status = row.cells[4].textContent;
+                const name = row.cells[1].textContent.toLowerCase();
+                
+                const statusMatch = !statusFilter || status.includes(statusFilter);
+                const searchMatch = !searchInput || name.includes(searchInput);
+                
+                row.style.display = statusMatch && searchMatch ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
