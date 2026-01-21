@@ -116,6 +116,31 @@ export interface MountainWithTrails extends Mountain {
   trails: Trail[];
 }
 
+// 국립공원 탐방로 데이터
+export interface NationalParkTrailData {
+  mountain_name: string;
+  blackyak_id: number;
+  source: string;
+  trail_count: number;
+  center: [number, number];  // [lon, lat]
+  features: NationalParkTrailFeature[];
+}
+
+export interface NationalParkTrailFeature {
+  type: 'Feature';
+  properties: {
+    name: string;
+    detail: string;
+    difficulty: string;
+    distance_m: number;
+    point_count: number;
+  };
+  geometry: {
+    type: 'LineString';
+    coordinates: [number, number][];  // [lon, lat][]
+  };
+}
+
 // 산림청 산정보 API 데이터
 export interface MountainInfo {
   blackyak_id: number;

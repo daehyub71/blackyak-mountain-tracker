@@ -210,7 +210,7 @@ export function MountainDetailPage() {
               </div>
             </div>
 
-            {/* 산 소개 (산림청 API 데이터) */}
+            {/* 산 소개 (위키피디아) */}
             {mountainInfo?.mntn_summary && (
               <div className="bg-white rounded-2xl p-6 border border-gray-100">
                 <h2 className="flex items-center gap-2 text-lg font-semibold text-gray-900 mb-4">
@@ -220,6 +220,26 @@ export function MountainDetailPage() {
                 <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                   {mountainInfo.mntn_summary}
                 </p>
+                <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-xs text-gray-400">
+                    출처: <a
+                      href={`https://ko.wikipedia.org/wiki/${encodeURIComponent(mountain.name.split('(')[0].trim().replace(/ /g, '_'))}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      위키피디아
+                    </a>
+                  </span>
+                  <a
+                    href={`https://ko.wikipedia.org/wiki/${encodeURIComponent(mountain.name.split('(')[0].trim().replace(/ /g, '_'))}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-blue-500 hover:underline flex items-center gap-1"
+                  >
+                    더 보기 →
+                  </a>
+                </div>
               </div>
             )}
 
@@ -312,7 +332,11 @@ export function MountainDetailPage() {
                 <span className="w-2 h-2 bg-primary rounded-full"></span>
                 등산로 지도
               </h2>
-              <TrailMap mountainName={mountain.name} />
+              <TrailMap
+                mountainName={mountain.name}
+                blackyakId={mountainInfo?.blackyak_id}
+                certificationPoint={mountainInfo?.certification_point || mountain.certification_point || undefined}
+              />
             </div>
 
             {/* 등산 코스 목록 */}
