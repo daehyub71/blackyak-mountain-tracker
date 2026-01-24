@@ -1,5 +1,11 @@
 [
   {
+    "mountain_name": "가리산(홍천)",
+    "mnt_code": "gpx_1",
+    "blackyak_id": 1,
+    "distance_km": 7.21
+  },
+  {
     "mountain_name": "가리왕산",
     "mnt_code": 427700101,
     "blackyak_id": 2,

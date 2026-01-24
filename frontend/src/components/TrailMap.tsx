@@ -171,7 +171,23 @@ export function TrailMap({ mountainName, blackyakId, certificationPoint }: Trail
               }
             }
           } catch {
-            // 국립공원 데이터 없음, 산림청 데이터로 폴백
+            // 국립공원 데이터 없음, 다음 소스로 폴백
+          }
+
+          // 1.5. GPX 업로드 데이터 확인 (사용자 업로드)
+          try {
+            const gpxRes = await fetch(`/trails/gpx_${blackyakId}.json`);
+            if (gpxRes.ok) {
+              const gpxData: TrailData = await gpxRes.json();
+              if (gpxData.track && gpxData.track.length > 0) {
+                setTrailData(gpxData);
+                setDataSource('forest_service');  // 같은 형식 사용
+                setLoading(false);
+                return;
+              }
+            }
+          } catch {
+            // GPX 업로드 데이터 없음, 산림청 데이터로 폴백
           }
         }
 
