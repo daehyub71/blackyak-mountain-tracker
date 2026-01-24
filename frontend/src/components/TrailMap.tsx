@@ -317,6 +317,8 @@ function NationalParkMap({
   clearAllCourses: () => void;
   certificationPoint?: string;
 }) {
+  // 정상 정보
+  const summit = data.summit;
   // 인증 장소 키워드 추출
   const certKeywords = extractCertKeywords(certificationPoint);
 
@@ -376,6 +378,12 @@ function NationalParkMap({
             <div className="flex items-center gap-2">
               <span className="text-orange-500 font-medium">📏 총 거리</span>
               <span className="text-gray-700">{(totalDistance / 1000).toFixed(1)} km</span>
+            </div>
+          )}
+          {summit && (
+            <div className="flex items-center gap-2">
+              <span className="text-yellow-600 font-medium">⛰️ 정상</span>
+              <span className="text-gray-700">{summit.elevation.toLocaleString()}m</span>
             </div>
           )}
         </div>
@@ -498,6 +506,23 @@ function NationalParkMap({
               </div>
             );
           })}
+
+          {/* 정상 마커 */}
+          {summit && (
+            <Marker
+              position={[summit.coordinates[1], summit.coordinates[0]]}
+              icon={summitIcon}
+              zIndexOffset={1000}
+            >
+              <Popup>
+                <div className="text-center">
+                  <span className="font-bold text-yellow-600 text-lg">⛰️ 정상</span>
+                  <p className="text-sm font-semibold mt-1">{data.mountain_name}</p>
+                  <p className="text-sm text-gray-600">{summit.elevation.toLocaleString()}m</p>
+                </div>
+              </Popup>
+            </Marker>
+          )}
         </MapContainer>
       </div>
 
@@ -538,6 +563,11 @@ function NationalParkMap({
       <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
         <p className="text-xs text-gray-500 font-medium mb-2">범례</p>
         <div className="flex flex-wrap gap-4 text-xs text-gray-600">
+          {summit && (
+            <span className="flex items-center gap-1">
+              <span className="w-4 h-4 rounded-full bg-yellow-500 flex items-center justify-center text-[8px]">⛰️</span> 정상
+            </span>
+          )}
           <span className="flex items-center gap-1">
             <span className="w-3 h-3 rounded-full bg-green-500"></span> 출발점
           </span>
@@ -549,7 +579,7 @@ function NationalParkMap({
           </span>
         </div>
         <p className="mt-3 text-xs text-gray-400">
-          * 국립공원공단 탐방로 공간데이터 API 기반
+          * {data.source || '국립공원공단 탐방로 공간데이터 API'} 기반
         </p>
       </div>
     </div>

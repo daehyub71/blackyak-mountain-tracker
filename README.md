@@ -14,7 +14,20 @@ A comprehensive information platform for hikers challenging the **Blackyak 100 F
 - **Trail Maps** - Interactive maps with trail routes for 62 mountains (Leaflet-based)
 - **Summit Markers** - Gold markers showing summit positions with elevation data
 - **Wikipedia Integration** - Mountain descriptions from Korean Wikipedia (87/99 mountains)
+- **GPX Download Links** - External trail service links for detailed hiking routes
 - **Responsive Design** - Mobile-first UI optimized for outdoor use
+
+## External Trail Services
+
+For detailed hiking trail GPX files, the app provides quick links to popular Korean outdoor services:
+
+| Service | URL | Description |
+|---------|-----|-------------|
+| **램블러 (Ramblr)** | [ramblr.com/web/explore](https://www.ramblr.com/web/explore) | GPS tracking and trail sharing platform |
+| **트랭글 (Tranggle)** | [tranggle.com](https://www.tranggle.com/) | Korea's #1 outdoor GPS app with hiking trails |
+| **산림청 100대명산** | [forest.go.kr](https://www.forest.go.kr/kfsweb/kfi/kfs/foreston/main/contents/FmmntSrch/selectFmmntSrchList.do) | Official Korea Forest Service mountain database |
+
+> **Note**: The app displays certification point coordinates (waypoints). For complete hiking trail routes, use the external services above to search and download GPX files.
 
 ## Demo
 
@@ -142,6 +155,8 @@ MIT License
 ## Acknowledgments
 
 - [Blackyak](https://www.blackyak.com/) for the 100 Famous Mountains challenge
-- [Korea Forest Service](https://www.forest.go.kr/) for trail spatial data
+- [Korea Forest Service](https://www.forest.go.kr/) for trail spatial data and 100 Famous Mountains database
 - [Korean Wikipedia](https://ko.wikipedia.org/) for mountain descriptions
 - [OpenStreetMap](https://www.openstreetmap.org/) for map tiles
+- [Ramblr](https://www.ramblr.com/) for GPS trail sharing platform
+- [Tranggle](https://www.tranggle.com/) for outdoor GPS trail services

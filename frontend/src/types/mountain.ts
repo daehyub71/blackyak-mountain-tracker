@@ -121,9 +121,10 @@ export interface NationalParkTrailData {
   mountain_name: string;
   blackyak_id: number;
   source: string;
-  trail_count: number;
+  trail_count?: number;
   center: [number, number];  // [lon, lat]
   features: NationalParkTrailFeature[];
+  summit?: TrailSummit;  // 정상 위치 (선택적)
 }
 
 export interface NationalParkTrailFeature {
